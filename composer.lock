@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ccbd816a07b206f971042295b899d1ba",
+    "content-hash": "adeea4784ca963f8c6178141c9a2c1a7",
     "packages": [
         {
             "name": "brick/math",
@@ -888,6 +888,58 @@
                 }
             ],
             "time": "2022-06-20T21:43:11+00:00"
+        },
+        {
+            "name": "imangazaliev/didom",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/Imangazaliev/DiDOM.git",
+                "reference": "87f7089d95aef7fd09dc68826cfa245b90f3040b"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/Imangazaliev/DiDOM/zipball/87f7089d95aef7fd09dc68826cfa245b90f3040b",
+                "reference": "87f7089d95aef7fd09dc68826cfa245b90f3040b",
+                "shasum": ""
+            },
+            "require": {
+                "ext-dom": "*",
+                "ext-iconv": "*",
+                "php": ">=7.2"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^8.5"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "DiDom\\": "src/DiDom/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Imangazaliev Muhammad",
+                    "email": "imangazalievm@gmail.com"
+                }
+            ],
+            "description": "Simple and fast HTML parser",
+            "homepage": "https://github.com/Imangazaliev/DiDOM",
+            "keywords": [
+                "didom",
+                "html",
+                "parser",
+                "xml"
+            ],
+            "support": {
+                "issues": "https://github.com/Imangazaliev/DiDOM/issues",
+                "source": "https://github.com/Imangazaliev/DiDOM/tree/2.0"
+            },
+            "time": "2022-05-08T01:48:13+00:00"
         },
         {
             "name": "laravel/framework",
@@ -2087,6 +2139,56 @@
                 }
             ],
             "time": "2022-08-01T11:03:24+00:00"
+        },
+        {
+            "name": "ovidigital/js-object-to-json",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/ovidigital/js-object-to-json.git",
+                "reference": "f85b0fb7bdeb40ce40c19318b37d18783bd6032d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/ovidigital/js-object-to-json/zipball/f85b0fb7bdeb40ce40c19318b37d18783bd6032d",
+                "reference": "f85b0fb7bdeb40ce40c19318b37d18783bd6032d",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.0 || ^8.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^6.0 || ^7.0 || ^8.0 || ^9.0"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "OviDigital\\JsObjectToJson\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Ovi Indrei",
+                    "email": "ovidiu.indrei@gmail.com"
+                }
+            ],
+            "description": "PHP library to convert a JavaScript object string to JSON formatted string",
+            "homepage": "https://github.com/ovidigital/js-object-to-json",
+            "keywords": [
+                "JS",
+                "javascript",
+                "json",
+                "object"
+            ],
+            "support": {
+                "issues": "https://github.com/ovidigital/js-object-to-json/issues",
+                "source": "https://github.com/ovidigital/js-object-to-json"
+            },
+            "time": "2022-04-29T16:23:38+00:00"
         },
         {
             "name": "phpoption/phpoption",
@@ -7691,5 +7793,5 @@
         "php": "^8.0.2"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.1.0"
+    "plugin-api-version": "2.3.0"
 }
