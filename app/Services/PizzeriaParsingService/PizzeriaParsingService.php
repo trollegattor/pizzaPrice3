@@ -24,7 +24,7 @@ class PizzeriaParsingService implements PizzeriaParsingServiceContract
         }
         $output = preg_replace_callback("/(&#[0-9]+;)/", function($m) { return mb_convert_encoding($m[1], "UTF-8", "HTML-ENTITIES"); }, $strPizza->html());
         $sliceAfter=Str::after($output,"JSON.parse('");
-        $sliceBefore=Str::beforeLast($sliceAfter,"');");
+        $sliceBefore=Str::beforeLast($sliceAfter,"]}');");
         $json = \OviDigital\JsObjectToJson\JsConverter::convertToJson($sliceBefore);
 
         dd($json);
