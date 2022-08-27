@@ -6,15 +6,30 @@ use App\Services\PizzeriaParsingService\Contracts\PizzeriaParsingServiceContract
 
 class PizzaPriceController extends Controller
 {
-    public function getPizzeriaPrices($pizzeria, PizzeriaParsingServiceContract $pizzeriaParsingService)
+    public function parsePrices($pizzeria, PizzeriaParsingServiceContract $pizzeriaParsingService)
     {
-        $pizzeriaPrice = $pizzeriaParsingService->getPizzeriaPrices($pizzeria);
+        $price = $pizzeriaParsingService->getPizzeriaPrices($pizzeria);
+        dd($price);
 
         return $pizzeriaPrice;
     }
 
-    public function allPizzeriasPrices()
+    public function parseAllPrices()
     {
-        return 'all';
+        return 'parseAllPrices';
     }
+    public function getPrices()
+    {
+        return 'getPrices';
+    }
+    public function getAllPrices()
+    {
+        return 'getAllPrices';
+    }
+    public function getEstablishment()
+    {
+        $list=$this->config->get('establishment');
+        return 'getAllPrices';
+    }
+
 }

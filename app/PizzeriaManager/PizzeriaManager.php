@@ -2,6 +2,7 @@
 
 namespace App\PizzeriaManager;
 
+use App\Pizzerias\DominosPizzeria;
 use Illuminate\Support\Manager;
 
 class PizzeriaManager extends Manager
@@ -11,9 +12,9 @@ class PizzeriaManager extends Manager
         $default = 'dominas';
         return $default;
     }
-    public function createParsingDominosUaPizzeriaDriver()
+    public function createParsingPizzeriaDominosDriver()
     {
-        return new ParsingDominosUaPizzeriaD();
+        return new DominosPizzeria();
     }
 
 
