@@ -11,7 +11,7 @@ class PizzaPriceController extends Controller
         $price = $pizzeriaParsingService->getPizzeriaPrices($pizzeria);
         dd($price);
 
-        return $pizzeriaPrice;
+        return 'end';
     }
 
     public function parseAllPrices()

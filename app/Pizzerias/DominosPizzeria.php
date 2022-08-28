@@ -4,21 +4,24 @@ namespace App\Pizzerias;
 
 use DiDom\Document;
 use DiDom\Exceptions\InvalidSelectorException;
+use Exception;
 use Illuminate\Support\Str;
 use stdClass;
 
 class DominosPizzeria
 {
     /**
-     * @return array
+     * @return ProductModel
      * @throws InvalidSelectorException
      */
-    public function getPrices(): array
+    public function getPrices(): ProductModel
     {
         $dataJson = $this->getData();
-        $dataPrice = $this->getDataPrice($dataJson);
+        $dataPizzas = $this->getDataPizzas($dataJson);
+        $dataIngredients=$this->getIngredients($dataJson);
+        $dataProducts=new ProductModel($dataPizzas,$dataIngredients);
 
-        return $dataPrice;
+        return $dataProducts;
     }
 
     /**
@@ -36,7 +39,7 @@ class DominosPizzeria
     }
 
     /**
-     * @param $pizzeriaData
+     * @param $data
      * @return stdClass
      */
     protected function decodeData($data): stdClass
@@ -92,25 +95,68 @@ class DominosPizzeria
      * @param $dataJson
      * @return array
      */
-    protected function getDataPrice($dataJson)
+    protected function getDataPizzas($dataJson)
     {
         $dataPriceJson = [];
         foreach ($dataJson->data->groups as $groups) {
             foreach ($groups->products as $pizza) {
+                $dataTopping = [];
+                foreach ($pizza->toppings as $topping) {
+                    $name = $topping->group_name;
+                    $max_quantity = $topping->max_quantity;
+                    $dataTopping[] = array('group_name' => $name, 'max_quantity' => $max_quantity);
+                }
                 $name = $pizza->name;
+                $linkProduct = $pizza->link;
+                $linkPicture = $pizza->image->full;
                 foreach ($pizza->sizes as $value) {
                     $size = $value->name;
                     foreach ($value->flavors as $everyPrice) {
                         $flavor = $everyPrice->name;
                         $weight = $everyPrice->product->weight;
                         $price = $everyPrice->product->price;
-                        $array = array('name', 'size', 'flavor', 'weight', 'price');
-                        $dataPrice = compact($array);
-                        $dataPriceJson[] = $dataPrice;
+                        $model = new PizzaModel(
+                            name: $name,
+                            size: $size,
+                            flavor: $flavor,
+                            weight: $weight,
+                            price: $price,
+                            linkProduct: $linkProduct,
+                            linkPicture: $linkPicture,
+                            dataTopping: $dataTopping,
+                        );
+                        $dataPriceJson[] = $model;
                     }
                 }
             }
         }
         return $dataPriceJson;
+    }
+
+    /**
+     * @param $dataJson
+     * @return array
+     */
+    protected function getIngredients($dataJson)
+    {
+        $dataIngredient = [];
+        foreach ($dataJson->data->filters as $item) {
+            foreach ($item->toppings as $element) {
+                try {
+                    $linkPicture = $element->image->full;
+                } catch (Exception) {
+                    continue;
+                }
+                $name = $element->name;
+                $ingredient = new IngredientModel(
+                    groupName: $item->name,
+                    name: $name,
+                    lingPicture: $linkPicture,
+                    price: '41'
+                );
+                $dataIngredient[] = $ingredient;
+            }
+        }
+        return $dataIngredient;
     }
 }

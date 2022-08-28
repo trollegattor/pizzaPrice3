@@ -2,11 +2,13 @@
 
 namespace App\Services\PizzeriaParsingService\Contracts;
 
+use App\Pizzerias\ProductModel;
+
 interface PizzeriaParsingServiceContract
 {
     /**
      * @param string $pizzeria
-     * @return array
+     * @return ProductModel
      */
-    public function getPizzeriaPrices(string $pizzeria): array;
+    public function getPizzeriaPrices(string $pizzeria): ProductModel;
 }
