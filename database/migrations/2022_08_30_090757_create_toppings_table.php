@@ -13,13 +13,12 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pizzas', function (Blueprint $table) {
+        Schema::create('toppings', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('cafe_id');
             $table->string('name');
-            $table->string('link')->nullable();
+            $table->decimal('price',6,2,true);
             $table->string('picture')->nullable();
-            $table->string('consist')->nullable();;
             $table->foreign('cafe_id')
                 ->references('id')
                 ->on('cafes')
@@ -35,6 +34,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pizzas');
+        Schema::dropIfExists('toppings');
     }
 };

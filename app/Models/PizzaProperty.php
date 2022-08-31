@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Pizza extends Model
+class PizzaProperty extends Model
 {
     use HasFactory;
 
@@ -17,10 +17,8 @@ class Pizza extends Model
     /** @var string[] */
     public $fillable = [
         'cafe_id',
-        'name',
-        'link',
-        'picture',
-        'consist',
+        'size',
+        'flavor',
     ];
 
     /**

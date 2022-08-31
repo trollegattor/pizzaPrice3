@@ -189,7 +189,8 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Services\PizzeriaParsingService\PizzeriaParsingServiceProvider::class,
+        App\Services\ProductSaveService\ProductSaveServiceProvider::class,
+        App\Services\CafeParsingService\CafeParsingServiceProvider::class,
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
         // App\Providers\BroadcastServiceProvider::class,

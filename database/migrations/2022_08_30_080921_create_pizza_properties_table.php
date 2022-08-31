@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('pizzas', function (Blueprint $table) {
+        Schema::create('pizza_properties', function (Blueprint $table) {
             $table->increments('id');
             $table->unsignedInteger('cafe_id');
-            $table->string('name');
-            $table->string('link')->nullable();
-            $table->string('picture')->nullable();
-            $table->string('consist')->nullable();;
+            $table->string('size')->default('Standart');
+            $table->string('flavor')->nullable();
             $table->foreign('cafe_id')
                 ->references('id')
                 ->on('cafes')
@@ -35,6 +33,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('pizzas');
+        Schema::dropIfExists('pizza_properties');
     }
 };

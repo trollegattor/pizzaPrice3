@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Pizza extends Model
+class Price extends Model
 {
     use HasFactory;
 
@@ -16,11 +15,9 @@ class Pizza extends Model
 
     /** @var string[] */
     public $fillable = [
-        'cafe_id',
-        'name',
-        'link',
-        'picture',
-        'consist',
+        'pizza_id',
+        'pizza_property_id',
+        'price',
     ];
 
     /**
@@ -32,10 +29,18 @@ class Pizza extends Model
     }
 
     /**
-     * @return HasMany
+     * @return BelongsTo
      */
-    public function price(): HasMany
+    public function pizza(): BelongsTo
     {
-        return $this->hasMany(Price::class);
+        return $this->belongsTo(Pizza::class);
+    }
+
+    /**
+     * @return BelongsTo
+     */
+    public function pizzaProperty(): BelongsTo
+    {
+        return $this->belongsTo(PizzaProperty::class);
     }
 }

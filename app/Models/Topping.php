@@ -5,9 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 
-class Pizza extends Model
+class Topping extends Model
 {
     use HasFactory;
 
@@ -18,9 +17,8 @@ class Pizza extends Model
     public $fillable = [
         'cafe_id',
         'name',
-        'link',
-        'picture',
-        'consist',
+        'price',
+        'picture'
     ];
 
     /**
@@ -29,13 +27,5 @@ class Pizza extends Model
     public function cafe(): BelongsTo
     {
         return $this->belongsTo(Cafe::class);
-    }
-
-    /**
-     * @return HasMany
-     */
-    public function price(): HasMany
-    {
-        return $this->hasMany(Price::class);
     }
 }
