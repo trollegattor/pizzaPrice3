@@ -32,7 +32,7 @@ class Cafe extends Model
     /**
      * @return HasMany
      */
-    public function PizzaProperty(): HasMany
+    public function pizzaProperty(): HasMany
     {
         return $this->hasMany(PizzaProperty::class);
     }
