@@ -11,6 +11,7 @@ use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
 use App\Orchid\Screens\PlatformScreen;
+use App\Orchid\Screens\Product;
 use App\Orchid\Screens\Role\RoleEditScreen;
 use App\Orchid\Screens\Role\RoleListScreen;
 use App\Orchid\Screens\User\UserEditScreen;
@@ -111,7 +112,8 @@ Route::screen('email', EmailSenderScreen::class)
         return $trail
             ->parent('platform.index')
             ->push('Email sender');
-    });;
+    });
+Route::screen('/product', Product::class)->name('platform.idea');
 
 
 Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');

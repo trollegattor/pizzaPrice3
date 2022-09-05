@@ -128,8 +128,8 @@ return [
     */
 
     'template' => [
-        'header' => '',
-        'footer' => '',
+        'header' => 'Parsun',
+        'footer' => 'Parsec',
     ],
 
     /*
