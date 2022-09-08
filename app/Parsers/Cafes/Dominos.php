@@ -124,7 +124,10 @@ class Dominos
                 $consist = implode(', ', $dataTopping);
                 $name = $pizza->name;
                 $linkProduct = $pizza->link;
-                $linkPicture = $pizza->image->full;
+                foreach ($pizza->image as $key => $value) {
+                    if ($key == '480')
+                        $linkPicture = $value;
+                }
                 foreach ($pizza->sizes as $value) {
                     $size = $value->name;
                     foreach ($value->flavors as $everyPrice) {

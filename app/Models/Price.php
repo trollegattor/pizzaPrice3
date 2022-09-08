@@ -5,9 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Orchid\Screen\AsSource;
 
 class Price extends Model
 {
+    use AsSource;
     use HasFactory;
 
     /** @var bool */

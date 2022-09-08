@@ -2,36 +2,31 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Pizza;
 use App\Services\ProductSaveService\ProductSaveService;
 use App\Services\CafeParsingService\Contracts\CafeParsingServiceContract;
+use Illuminate\Http\RedirectResponse;
 
 class PriceController extends Controller
 {
-    public function parsePrices($cafe, CafeParsingServiceContract $cafeParsingService, ProductSaveService $productSaveService)
+    /**
+     * @param CafeParsingServiceContract $cafeParsingService
+     * @param ProductSaveService $productSaveService
+     * @return RedirectResponse
+     */
+    public function parsePrices(CafeParsingServiceContract $cafeParsingService, ProductSaveService $productSaveService)
     {
-        $price = $cafeParsingService->getCafePrices($cafe);
+        $price = $cafeParsingService->getCafePrices(key(config('cafes')));
         $productSaveService->saveNewProducts($price);
 
-
-        return 'end';
+        return redirect()->back();
     }
 
-    public function parseAllPrices()
+    public function delete()
     {
-        return 'parseAllPrices';
+        while (Pizza::query()->first()) {
+            $pizza = Pizza::query()->first();
+            //$pizza->delete();
+        }
     }
-    public function getPrices()
-    {
-        return 'getPrices';
-    }
-    public function getAllPrices()
-    {
-        return 'getAllPrices';
-    }
-    public function getEstablishment()
-    {
-        $list=$this->config->get('establishment');
-        return 'getAllPrices';
-    }
-
 }

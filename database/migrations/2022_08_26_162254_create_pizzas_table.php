@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedInteger('cafe_id');
             $table->string('name');
             $table->string('link')->nullable();
-            $table->string('picture')->nullable();
+            $table->text('picture')->nullable();
             $table->string('consist')->nullable();;
             $table->foreign('cafe_id')
                 ->references('id')

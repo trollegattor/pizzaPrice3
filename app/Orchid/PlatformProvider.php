@@ -29,6 +29,7 @@ class PlatformProvider extends OrchidServiceProvider
     {
         return [
             Menu::make('Example screen')
+                ->permission('platform.systems.roles')
                 ->icon('monitor')
                 ->route('platform.example')
                 ->title('Navigation')
@@ -37,6 +38,7 @@ class PlatformProvider extends OrchidServiceProvider
                 }),
 
             Menu::make('Dropdown menu')
+                ->permission('platform.systems.roles')
                 ->icon('code')
                 ->list([
                     Menu::make('Sub element item 1')->icon('bag'),
@@ -44,29 +46,35 @@ class PlatformProvider extends OrchidServiceProvider
                 ]),
 
             Menu::make('Basic Elements')
+                ->permission('platform.systems.roles')
                 ->title('Form controls')
                 ->icon('note')
                 ->route('platform.example.fields'),
 
             Menu::make('Advanced Elements')
+                ->permission('platform.systems.roles')
                 ->icon('briefcase')
                 ->route('platform.example.advanced'),
 
             Menu::make('Text Editors')
+                ->permission('platform.systems.roles')
                 ->icon('list')
                 ->route('platform.example.editors'),
 
             Menu::make('Overview layouts')
+                ->permission('platform.systems.roles')
                 ->title('Layouts')
                 ->icon('layers')
                 ->route('platform.example.layouts'),
 
             Menu::make('Chart tools')
                 ->icon('bar-chart')
+                ->permission('platform.systems.roles')
                 ->route('platform.example.charts'),
 
             Menu::make('Cards')
                 ->icon('grid')
+                ->permission('platform.systems.roles')
                 ->route('platform.example.cards')
                 ->divider(),
 
@@ -96,6 +104,10 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Email sender')
                 ->icon('envelope-letter')
                 ->route('platform.email')
+                ->title('Tools'),
+            Menu::make('Products')
+                ->icon('modules')
+                ->route('platform.idea')
                 ->title('Tools')
         ];
     }
