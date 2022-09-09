@@ -170,7 +170,7 @@ class Dominos
                     cafe: config("cafes.dominos.data.name"),
                     name: $name,
                     picture: $linkPicture,
-                    price: '41'
+                    price: config('cafes.dominos.prices.topping')
                 );
                 $dataIngredient[] = $ingredient;
             }

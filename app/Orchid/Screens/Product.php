@@ -3,6 +3,8 @@
 namespace App\Orchid\Screens;
 
 use App\Http\Controllers\PriceController;
+use App\Jobs\CafeParsing;
+use App\Jobs\ProductAllRemove;
 use App\Models\Pizza;
 use App\Models\Price;
 use App\Orchid\Layouts\ProductListLayout;
@@ -61,6 +63,10 @@ class Product extends Screen
             Button::make('Refresh products')
                 ->icon('database')
                 ->method('update'),
+            Button::make('Delete products')
+                ->icon('database')
+                ->method('remove'),
+
         ];
     }
 
@@ -81,7 +87,15 @@ class Product extends Screen
      */
     public function update()
     {
-        return redirect()->action([PriceController::class, 'parsePrices']);
+        CafeParsing::dispatch();
+    }
+
+    /**
+     * @return void
+     */
+    public function remove()
+    {
+        ProductAllRemove::dispatch();
     }
 
 

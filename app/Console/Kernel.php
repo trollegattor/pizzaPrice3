@@ -2,10 +2,9 @@
 
 namespace App\Console;
 
-use App\Http\Controllers\PriceController;
+use App\Jobs\CafeParsing;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
-use Illuminate\Support\Facades\Redirect;
 
 class Kernel extends ConsoleKernel
 {
@@ -17,9 +16,7 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-         $schedule->call(function (){
-           Redirect::action([PriceController::class, 'parsePrices']);
-         })->everyTwoMinutes();
+        $schedule->job(new CafeParsing())->dailyAt('13:00');
     }
 
     /**
@@ -29,7 +26,7 @@ class Kernel extends ConsoleKernel
      */
     protected function commands()
     {
-        $this->load(__DIR__.'/Commands');
+        $this->load(__DIR__ . '/Commands');
 
         require base_path('routes/console.php');
     }

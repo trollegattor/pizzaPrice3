@@ -108,7 +108,19 @@ class PlatformProvider extends OrchidServiceProvider
             Menu::make('Products')
                 ->icon('modules')
                 ->route('platform.idea')
+                ->title('Tools'),
+            Menu::make('NewProducts')
+                ->icon('modules')
+                ->slug('sub-menu')
+                ->route('platform.idea')
                 ->title('Tools')
+            ->list([Menu::make('All Products')
+                ->icon('modules')
+                ->sort(0),
+                Menu::make('Dominos')
+                    ->icon('modules')
+                    ->sort(2),
+            ]),
         ];
     }
 

@@ -10,6 +10,7 @@ use App\Orchid\Screens\Examples\ExampleFieldsScreen;
 use App\Orchid\Screens\Examples\ExampleLayoutsScreen;
 use App\Orchid\Screens\Examples\ExampleScreen;
 use App\Orchid\Screens\Examples\ExampleTextEditorsScreen;
+use App\Orchid\Screens\NewProduct;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Product;
 use App\Orchid\Screens\Role\RoleEditScreen;
@@ -114,7 +115,7 @@ Route::screen('email', EmailSenderScreen::class)
             ->push('Email sender');
     });
 Route::screen('/product', Product::class)->name('platform.idea');
-
+Route::screen('/newproduct', NewProduct::class)->name('platform.idea');
 
 Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');
