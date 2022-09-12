@@ -105,14 +105,16 @@ class PlatformProvider extends OrchidServiceProvider
                 ->icon('envelope-letter')
                 ->route('platform.email')
                 ->title('Tools'),
+
             Menu::make('Products')
                 ->icon('modules')
-                ->route('platform.idea')
+                ->route('platform.product')
                 ->title('Tools'),
+
             Menu::make('NewProducts')
                 ->icon('modules')
                 ->slug('sub-menu')
-                ->route('platform.idea')
+                ->route('platform.newproduct')
                 ->title('Tools')
             ->list([Menu::make('All Products')
                 ->icon('modules')
@@ -120,7 +122,7 @@ class PlatformProvider extends OrchidServiceProvider
                 Menu::make('Dominos')
                     ->icon('modules')
                     ->sort(2),
-            ]),
+                ]),
         ];
     }
 

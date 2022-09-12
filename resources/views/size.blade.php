@@ -7,10 +7,13 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
+
 <body>
 <div class="product">
-    <div class="product_image"><img src="{{$link}}" width="100" height="100"  alt="{{$link}}"></div>
+    <div class="product_image">< src="{{$select}}" width="100" height="100"></div>
 </div>
 
 </body>
 </html>
+

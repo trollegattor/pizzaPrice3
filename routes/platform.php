@@ -114,8 +114,8 @@ Route::screen('email', EmailSenderScreen::class)
             ->parent('platform.index')
             ->push('Email sender');
     });
-Route::screen('/product', Product::class)->name('platform.idea');
-Route::screen('/newproduct', NewProduct::class)->name('platform.idea');
+Route::screen('/product', Product::class)->name('platform.product');
+Route::screen('/newproduct', NewProduct::class)->name('platform.newproduct');
 
 Route::screen('example-fields', ExampleFieldsScreen::class)->name('platform.example.fields');
 Route::screen('example-layouts', ExampleLayoutsScreen::class)->name('platform.example.layouts');

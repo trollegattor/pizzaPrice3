@@ -94,7 +94,8 @@ class EmailSenderScreen extends Screen
      */
     public function sendMessage(Request $request)
     {
-        $request->validate([
+        dd($request->get('content'));
+        /*$request->validate([
             'subject' => 'required|min:6|max:50',
             'users'   => 'required',
             'content' => 'required|min:10'
@@ -107,7 +108,7 @@ class EmailSenderScreen extends Screen
             foreach ($request->get('users') as $email) {
                 $message->to($email);
             }
-        });
+        });*/
 
 
         Alert::info('Your email message has been sent successfully.');
