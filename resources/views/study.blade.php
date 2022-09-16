@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
+
     <title>Study page</title>
 </head>
 <body>
 <b> Hello </b>
+<br>
+<div id="elem">text</div>
+<input id=button" type="submit">
+<p id="element1">1</p>
+<p id="element2">2</p>
+<p id="element3">3</p>
+<select id="family">
+    <option>Oleh</option>
+    <option selected value="">Halyna</option>
+    <option>Mama</option>
+</select>
 
-<p><h2>First text</h2></p>
-<p align="justify">
-    Летом 2018 года подростки из футбольной команды вместе со своим тренером оказались в ловушке пещерного комплекса в Таиланде, выход из которого был затоплен водой. Пока они ищут спасения от подступающей воды, во внешнем мире собирается отряд для их спасения. Основано на реальной истории.
-</p>
-<hr>
-<p align="center">Second text<br>
-    Third text<br>
 
-Main text
-</p>
+<div id="parent">
+    <form action="">
+        <label for="input1"></label><input id="input1" type="text" value="1">
+    </form>
+    <input id="input2" value="2">
+</div>
+<script>
+    let family=document.querySelector('#family');
+    family.addEventListener('change',function (){
+        alert(this.value);
+    })
+   let object={
+       name:'John',
+       age:54,
+       city:'Odessa'
+   };
+   printMy(object['name']);
+
+
+
+    function printMy(data)
+    {
+       document.write(data);
+    }
+
+</script>
 
 </body>
 </html>

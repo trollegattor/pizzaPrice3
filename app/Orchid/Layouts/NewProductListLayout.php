@@ -32,7 +32,17 @@ class NewProductListLayout extends Table
     protected function columns(): iterable
     {
         return [
-            TD::make('name', 'Pizza')
+            TD::make('size', 'Pizza')
+                ->sort()
+                ->render(function ($product) {
+                    foreach ($product as $item)
+                    {
+                        dd($product);
+                    }
+
+                    return view('size',['$product'=>$product]);
+                }),
+           /* TD::make('name', 'Pizza')
                 ->sort()
                 ->width(100)
             ->render(function ($product){
@@ -40,6 +50,7 @@ class NewProductListLayout extends Table
                 return view('nameLink',['product'=>$product]);
             }),
 
+
             TD::make('size', 'Size')
                 ->sort()
                 ->render(function ($product) {
@@ -48,29 +59,26 @@ class NewProductListLayout extends Table
                     foreach ($sizeCollection as $item) {
                         $size[]=$item->size;
                     }
-                    return Select::make('size')
-                        ->options($size)
-                        ->title('Выберите свой рзмер');
-                }),
-            TD::make('size', 'Size')
-                ->sort()
-                ->render(function ($product) {
-                    $size=[];
-                    $sizeCollection=PizzaProperty::where('cafe_id', $product->cafe_id)->distinct()->get('size');
-                    foreach ($sizeCollection as $item) {
-                        $size[]=$item->size;
-                    }
-                    $select=Select::make('size')
-                        ->options($size)
-                        ->title('Выберите свой рзмер');
-                    return view('size',['select'=>$select]);
+                    return view('size',['size'=>$size]);
                 }),
 
-           TD::make('pizza_id', 'fg')
+            TD::make('flavor', 'Flavor')
+                ->sort()
+                ->render(function ($product) {
+                    $flavor=[];
+                    $flavorCollection=PizzaProperty::where('cafe_id', $product->cafe_id)->distinct()->get('flavor');
+                    foreach ($flavorCollection as $item) {
+                        $flavor[]=$item->flavor;
+                    }
+
+                    return view('flavor',['flavor'=>$flavor]);
+                }),
+
+           TD::make('pizza_id', 'Price')
                 ->sort()
                 ->render(function () {
                     return \request()->size;
-                })
+                })*/
 
 
 

@@ -3,8 +3,9 @@
 namespace App\Orchid\Screens;
 
 use App\Models\Pizza;
-use App\Orchid\Layouts\NewProductListLayout;
+
 use Orchid\Screen\Screen;
+use Orchid\Support\Facades\Layout;
 
 class NewProduct extends Screen
 {
@@ -62,7 +63,7 @@ class NewProduct extends Screen
     public function layout(): iterable
     {
         return [
-            NewProductListLayout::class
+            Layout::view('size')
         ];
     }
 }
