@@ -8,42 +8,57 @@
     <title>Document</title>
 </head>
 <body>
-
-
-
-
-<!--<select id="product">-->
-
-<table width="100" height="50">
-
+<table width="50" height="50">
+<thead>
     <tr>
-        <td><pre><strong><a> Id </a>  </strong> </pre></td>
-        <td><pre><strong><a> Pizza </a>  </strong> </pre></td>
+        <th>Id</th>
+        <th>Pizza</th>
+        <th>Size</th>
+        <th>Flavor</th>
     </tr>
-
-
-
+</thead>
     @foreach($products as $item)
 
         <tr>
-                <td><pre><strong><a> {{$item->id}}</a>  </strong> </pre></td>
-                <td><pre><strong><a href="{{$item->link}}"  title="Pizza"> {{$item->name}}</a>  </strong> </pre></td>
-                {{--<td><pre><strong><a> {{$products->pizzaProperty::where('cafe_id', $item->cafe_id)->distinct()->get('size')}}</a>  </strong> </pre></td>--}}
+            <td>
+                {{$item->id}}
+            </td>
+            <td>
+                <a href="{{$item->link}}" title="Pizza"> {{$item->name}}</a>
+            </td>
+            <td>
+                <pre><select id="product{{$item->id}}">
+                        @foreach($item->cafe->pizzaProperty->groupBy('size') as $key=>$property)
+                            <option>{{$key}}</option>
+                        @endforeach
+                    </select></pre>
+            </td>
+            <td>
+                <pre><select name="flavor[]" id="product2{{$item->id}}">
+                        @foreach($item->cafe->pizzaProperty->groupBy('flavor') as $key=>$property)
+                            <option>{{$key}}</option>
+                        @endforeach
+                    </select></pre>
+            </td>
 
-            </tr>
 
-        <!--<option>{{$item->name}}</option>-->
+        </tr>
+
+
+
+        <script>
+            let size = document.querySelector('#product{{$item->id}}')
+            document.write(size);
+            size.addEventListener('change', function () {
+                alert(this.value);
+            })
+        </script>
+
 
     @endforeach
-    </table>
+</table>
 {{--</select>--}}
-<script>
-    let size = document.querySelector('#product')
-    document.write(size.id);
-    size.addEventListener('change', function () {
-        alert(this.value);
-    })
-</script>
+
 
 </body>
 </html>

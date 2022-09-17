@@ -25,14 +25,6 @@ class Price extends Model
     /**
      * @return BelongsTo
      */
-    public function cafe(): BelongsTo
-    {
-        return $this->belongsTo(Cafe::class);
-    }
-
-    /**
-     * @return BelongsTo
-     */
     public function pizza(): BelongsTo
     {
         return $this->belongsTo(Pizza::class);

@@ -62,6 +62,16 @@ class NewProduct extends Screen
      */
     public function layout(): iterable
     {
+        /*foreach (Pizza::all() as $item) {
+
+            foreach($item->cafe->pizzaProperty->groupBy('size') as $key=>$value)
+            {
+                dd($key);
+            };
+            dd($item->cafe->pizzaProperty->where('cafe_id', $item->cafe_id)->groupBy('size'));
+            dd($item->pizzaProperty::where('cafe_id', $item->cafe_id)->distinct()->get('size'));
+        }
+        dd('Pizza::all()->price');*/
         return [
             Layout::view('size')
         ];

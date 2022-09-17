@@ -1,51 +1,69 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="{{ asset('css/styles.css') }}">
 
     <title>Study page</title>
 </head>
 <body>
-<b> Hello </b>
-<br>
-<div id="elem">text</div>
-<input id=button" type="submit">
-<p id="element1">1</p>
-<p id="element2">2</p>
-<p id="element3">3</p>
-<select id="family">
-    <option>Oleh</option>
-    <option selected value="">Halyna</option>
-    <option>Mama</option>
-</select>
+<header>
+    <p>Суши-бар <em class="bar">&laquo;Йокогама&raquo;</em></p>
+    <p class="picture"><img
+            title="sushi"
+            src="https://media.dominos.ua/__sized__/menu/product_osg_image/2021/07/27/PizzaMNHTTNingFULL-min-thumbnail-480x480-70.jpg"
+        ></p>
+</header>
 
+<main>
+    <h2>Прайс-лист</h2>
+    <table class="priceList">
+        <tr>
+            <th>Product</th>
+            <th>Price</th>
+        </tr>
+        <tr>
+            <th>Cyши</th>
+            <th></th>
+        </tr>
+        <tr>
+            <td>Чyккa</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <td>Maгypo</td>
+            <td>40</td>
+        </tr>
+        <tr>
+            <td>Toбикo</td>
+            <td>80</td>
+        </tr>
+    </table>
+    <table class="priceList">
+        <tr>
+            <th colspan="2">Caшими</th>
+        </tr>
+        <tr>
+            <td>Yнaги</td>
+            <td>140</td>
+        </tr>
+        <tr>
+            <td>Xaмaчи</td>
+            <td>440</td>
+        </tr>
+        <tr>
+            <td>Bceгo 5 наименований:</td>
+            <td></td>
+        </tr>
 
-<div id="parent">
-    <form action="">
-        <label for="input1"></label><input id="input1" type="text" value="1">
-    </form>
-    <input id="input2" value="2">
-</div>
-<script>
-    let family=document.querySelector('#family');
-    family.addEventListener('change',function (){
-        alert(this.value);
-    })
-   let object={
-       name:'John',
-       age:54,
-       city:'Odessa'
-   };
-   printMy(object['name']);
+    </table>
 
+</main>
+<footer>
+    <p>Ждем вас!</p>
+    <address>Наш адрес: <br> ул. Зеленая, 17.</address>
+</footer>
 
-
-    function printMy(data)
-    {
-       document.write(data);
-    }
-
-</script>
 
 </body>
 </html>

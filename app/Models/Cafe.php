@@ -37,13 +37,6 @@ class Cafe extends Model
         return $this->hasMany(PizzaProperty::class);
     }
 
-    /**
-     * @return HasMany
-     */
-    public function price(): HasMany
-    {
-        return $this->hasMany(Price::class);
-    }
 
     /**
      * @return HasMany
