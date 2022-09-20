@@ -1,34 +1,25 @@
-p {
-    font-size: 14pt;
-}
-
-.picture img {
-    width: 25%;
-}
-
-
-header {
+.number{
     text-align: center;
-    font-size: 32pt;
-    font-family: Italic, serif;
-    font-weight: bolder;
-    color: #6f42c1;
+    font-family: "Candara Light", serif;
+    font-size: 18pt;
 }
-
-main {
-    text-align: justify;
-
-}
-
-footer {
-    text-align: right;
-}
-.bigger {
-    font-size: 40pt;
-}
-table.priceList th, table.priceList td {
-    border: grey thin solid;
-    padding: 4px;
+.pizza{
     text-align: left;
-    width: 170px;
+    font-family: "Candara Light", serif;
+    font-size: 16pt;
+    font-weight: bold;
+}
+table.price-list th,table.price-list td {
+    padding: 5px;
+    border-bottom:black thin ridge  ;
+}
+.picture{
+    width: 40%;
+    font-size: 18pt;
+    text-align: center;
+
+}
+.pictureTable{
+    text-align: center;
+    width: 30%;
 }
