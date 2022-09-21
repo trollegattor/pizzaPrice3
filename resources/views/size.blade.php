@@ -12,8 +12,12 @@
 <table class="price-list">
     <thead>
     <tr>
-        <th><div class="number">№</div></th>
-        <th><div class="pizza">Pizza</div></th>
+        <th>
+            <div class="number">№</div>
+        </th>
+        <th>
+            <div class="pizza">Pizza</div>
+        </th>
         <th>Size</th>
         <th>Flavor</th>
         <th>Picture</th>
@@ -44,7 +48,7 @@
                     </select></pre>
             </td>
             <td class="pictureTable">
-                 <img class="picture" src="{{$item->picture}}" alt="{{$item->link}}">
+                <img class="picture" src="{{$item->picture}}" alt="{{$item->link}}">
             </td>
             <td>
                 <p id="price{{$item->id}}"></p>
@@ -52,42 +56,38 @@
 
         </tr>
         <script>
-            let size{{$item->id}} = document.querySelector("#sizeSelect{{$item->id}}")
-            console.log(size{{$item->id}});
-            size{{$item->id}}.addEventListener('change', function () {
-                alert(this.value);
-            })
+
+            let size{{$item->id}} = document.querySelector("#sizeSelect{{$item->id}}");
             let flavor{{$item->id}} = document.querySelector("#flavorSelect{{$item->id}}")
+
+
+            size{{$item->id}}.addEventListener('change', function () {
+                //alert(this.value);
+                document.getElementById("price{{$item->id}}").innerHTML =getPrice(size{{$item->id}}.value,flavor{{$item->id}}.value);
+            })
+
             console.log(flavor{{$item->id}});
             flavor{{$item->id}}.addEventListener('change', function () {
                 alert(this.value);
             })
-            let price{{$item->id}}="100";
-            document.getElementById("price{{$item->id}}").innerHTML=price{{$item->id}};
 
-        </script>
 
+
+            document.getElementById("price{{$item->id}}").innerHTML =getPrice(size{{$item->id}}.value,flavor{{$item->id}}.value);
+function getPrice(size, flavor){
+    alert(size)
+    @foreach($item->cafe->pizzaProperty as $element)
+    if('{{$element->size}}'===size ||'{{$element->flavor}}'===flavor){
+      return {{$item->price->where('pizza_property_id',$element->id)->value('price')}};
+    }
     @endforeach
 
+
+}
+
+        </script>
+    @endforeach
 </table>
-
-<script>
-
-    /*  let size =document.getElementsByName('selectr')
-
-      document.write(size);
-      alert(size.innerHTML);
-
-      for (let elements of size) {
-          elements.innerHTML;
-          //alert(elements.innerHTML);
-      }
-
-      size.addEventListener('change', function () {
-          alert(this.value);
-      })*/
-</script>
-
 </body>
 </html>
 
